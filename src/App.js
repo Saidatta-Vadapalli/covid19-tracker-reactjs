@@ -15,14 +15,19 @@ import { fetchData } from "./api/";
 // for classes, it's a good practice to mention them dynamically as mentioned below so that always the right style is applied to the element.
 
 class App extends React.Component {
+  state = {
+    data = {},
+  }
+
   async componentDidMount() {
-    const data = await fetchData();
-    console.log(data);
+    const fetchData = await fetchData();
+    this.setState({data: fetchData}); 
   }
   render() {
+    
     return (
       <div className={styles.container}>
-        <Cards />
+        <Cards data={ this.state.data } /> // or just below the render function, destructure the data as const data = this.state; and then just mention the data:curlybraces data
         <CountryPicker />
         <Chart />
       </div>
