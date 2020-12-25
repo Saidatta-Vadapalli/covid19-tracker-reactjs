@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://covid19.mathdro.id/api/";
+const url = 'https://covid19.mathdro.id/api/';
 
 export const fetchData = async () => {
   try {
@@ -25,5 +25,12 @@ export const fetchData = async () => {
     //   lastUpdated: lastUpdate, //rather than storing them like this , even more effective way is to directly return them
     // };
     return { confirmed, recovered, deaths, lastUpdate };
+  } catch (error) {}
+};
+
+export const fetchDailyData = async () => {
+  try {
+    const { data } = await axios.get(`${url}/daily`);
+    console.log(data);
   } catch (error) {}
 };
