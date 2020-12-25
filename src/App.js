@@ -16,18 +16,19 @@ import { fetchData } from "./api/";
 
 class App extends React.Component {
   state = {
-    data = {},
-  }
+    data: {},
+  };
 
   async componentDidMount() {
     const fetchData = await fetchData();
-    this.setState({data: fetchData}); 
+
+    this.setState({ data: fetchData });
   }
   render() {
-    
+    const { data } = this.state;
     return (
       <div className={styles.container}>
-        <Cards data={ this.state.data } /> // or just below the render function, destructure the data as const data = this.state; and then just mention the data:curlybraces data
+        <Cards data={data} />
         <CountryPicker />
         <Chart />
       </div>
