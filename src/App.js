@@ -9,14 +9,19 @@ import React from "react";
 // for the undermentioned to work
 import { Cards, Chart, CountryPicker } from "./Components";
 import styles from "./App.module.css";
+import { fetchData } from "./api/";
 // npm install --save axios react-chartjs-2 react-countup classnames
 
-// for classes, it's a good practice to mention them dynamically as mentioned below so that always the right style is applied to the element.  
+// for classes, it's a good practice to mention them dynamically as mentioned below so that always the right style is applied to the element.
 
 class App extends React.Component {
+  async componentDidMount() {
+    const data = await fetchData();
+    console.log(data);
+  }
   render() {
     return (
-      <div className={styles.container}> 
+      <div className={styles.container}>
         <Cards />
         <CountryPicker />
         <Chart />
