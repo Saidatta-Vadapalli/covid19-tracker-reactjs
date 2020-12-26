@@ -5,6 +5,7 @@ import cx from "classnames"; // cannot use multiple classnames withtout this lib
 import styles from "./Cards.module.css";
 
 const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
+  // seding the data value as props from App.js
   if (!confirmed) {
     return "loading...";
   }
