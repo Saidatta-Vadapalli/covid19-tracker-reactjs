@@ -40,12 +40,12 @@ const Chart = () => {
             options={{
               title: {
                 display: true,
-                text: "Total cases due to covid19",
+                text: "Total infected vs Total Deaths",
                 fontSize: 20,
               },
               legend: {
                 display: true,
-                position: "right",
+                position: "top",
               },
             }}
           />

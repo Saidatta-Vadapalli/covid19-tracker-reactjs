@@ -27,7 +27,9 @@ export const fetchData = async () => {
     //   lastUpdated: lastUpdate, //rather than storing them like this , even more effective way is to directly return them
     // };
     return { confirmed, recovered, deaths, lastUpdate };
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const fetchDailyData = async () => {
@@ -41,11 +43,21 @@ export const fetchDailyData = async () => {
     }));
 
     return modifiedData;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const countries = async () => {
+export const fetchCountries = async () => {
   try {
-    const response = axios.get(urlCountries);
-  } catch (error) {}
+    const {
+      data: { countries },
+    } = await axios.get(urlCountries);
+
+    return countries.map((country) => country.name);
+
+    //return countries.map((country) => country.name);
+  } catch (error) {
+    console.log(error);
+  }
 };
