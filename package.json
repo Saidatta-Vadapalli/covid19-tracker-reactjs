@@ -1,6 +1,5 @@
 {
   "name": "covid19-tracker-reactjs",
-  "proxy": "https://covid19.mathdro.id/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
