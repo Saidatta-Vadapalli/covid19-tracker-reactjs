@@ -1,0 +1,4 @@
+
+GET https://covid19.mathdro.id/api/daily
+
+GET https://covid19.mathdro.id/api/

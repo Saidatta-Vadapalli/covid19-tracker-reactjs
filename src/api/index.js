@@ -4,7 +4,11 @@ const url = "https://covid19.mathdro.id/api/";
 const urlDaily = "https://covid19.mathdro.id/api/daily";
 const urlCountries = "https://covid19.mathdro.id/api/countries";
 
-export const fetchData = async () => {
+export const fetchData = async (country) => {
+  let changeableURL = url;
+  if (country) {
+    changeableURL = `https://covid19.mathdro.id/api/countries/${country}`;
+  }
   try {
     //one way of destructuring the data not the most efficient way to do it
     // const { data } = await axios.get(url);
@@ -19,7 +23,7 @@ export const fetchData = async () => {
     //efficient way to destructure the data
     const {
       data: { confirmed, recovered, deaths, lastUpdate },
-    } = await axios.get(url);
+    } = await axios.get(changeableURL);
     // const modifiedData = {
     //   confirmed: confirmed,
     //   recovered: recovered,

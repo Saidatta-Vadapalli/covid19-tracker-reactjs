@@ -5,7 +5,7 @@ import React from "react";
 // import Chart from "./Components/Chart/Chart";
 // import CountryPicker from "./Components/CountryPicker/CountryPicker";
 
-// more readable and efficient way of exporting the components, index.js is required in the components directory
+// more readable and efficient way of importing the components(also called as the named import), index.js is required in the components directory
 // for the undermentioned to work
 import { Cards, Chart, CountryPicker } from "./Components";
 import styles from "./App.module.css";
@@ -17,6 +17,7 @@ import { fetchData } from "./api/";
 class App extends React.Component {
   state = {
     data: {},
+    country: "",
   };
 
   async componentDidMount() {
@@ -24,12 +25,16 @@ class App extends React.Component {
 
     this.setState({ data: fetchedData });
   }
+  handleCountryChange = async (country) => {
+    const fetchedData = await fetchData(country);
+    this.setState({ data: fetchedData, country: country }); 
+  };
   render() {
     const { data } = this.state;
     return (
       <div className={styles.container}>
         <Cards data={data} />
-        <CountryPicker />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart />
       </div>
     );
