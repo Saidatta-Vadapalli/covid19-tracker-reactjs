@@ -9,7 +9,7 @@ import React from "react";
 // for the undermentioned to work
 import { Cards, Chart, CountryPicker } from "./Components";
 import styles from "./App.module.css";
-import coronaImages from "./images/image.png"
+import coronaImages from "./images/image.png";
 import { fetchData } from "./api/";
 // npm install --save axios react-chartjs-2 react-countup classnames
 
@@ -34,7 +34,11 @@ class App extends React.Component {
     const { data, country } = this.state;
     return (
       <div className={styles.container}>
-        <img className={styles.image} src={coronaImages} />
+        <img
+          className={styles.image}
+          src={coronaImages}
+          alt="Coronavirus Logo"
+        />
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
         <Chart data={data} country={country} />
