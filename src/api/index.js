@@ -4,6 +4,7 @@ const url = "https://covid19.mathdro.id/api/";
 const urlDaily = "https://covid19.mathdro.id/api/daily";
 const urlCountries = "https://covid19.mathdro.id/api/countries";
 
+//get coutnry wise or woldwide data and destructure it
 export const fetchData = async (country) => {
   let changeableURL = url;
   if (country) {
@@ -36,6 +37,7 @@ export const fetchData = async (country) => {
   }
 };
 
+//fetching dailydata and returning the result
 export const fetchDailyData = async () => {
   try {
     const { data } = await axios.get(urlDaily);
@@ -52,6 +54,7 @@ export const fetchDailyData = async () => {
   }
 };
 
+//fetches a total list of countries
 export const fetchCountries = async () => {
   try {
     const {
